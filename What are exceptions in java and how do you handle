@@ -1,0 +1,327 @@
+ What are exceptions in java and how do you handle them?
+Exceptions occur when there is an issue with the program. There are two types of exceptions: Checked exceptions (aka Compile time) and Unchecked exceptions (aka Runtime). All checked exceptions must be handled otherwise the program will not compile. Unchecked exceptions happen during runtime so if they occur the program will be interrupted during execution making these exceptions are more difficult to handle. Exceptions can be handled using the try/catch block which lets you define the actions taken if specific exceptions occur. It is also possible to use the keyword throws in the method signature to allow the program to compile and accept that an exception may occur, but this is not handling the exception. 
+ Difference between Error and Exception in Java?
+
+Both Error and Exception are derived from Throwable in Java.
+Error represent errors which generally cannot be handled. They are issues outside of the code
+For example: OutOfMemoryError, NoClassDefFoundError
+Exception represent problems coming from the code which can be handled. 
+For example: IOException, NullPointerException
+Exceptions are divided in two categories checked and unchecked Exceptions. Checked Exceptions must be handled before execution, but Unchecked Exception occur during runtime
+Errors are something developer are not required to do anything with 
+In general Errors are beyond anyone’s control, but Exceptions can be guessed and handled
+
+ Difference between throw and throws in Java?
+
+throw and throws are two keywords related to Java Exceptions
+throw keyword is used to throw an exception explicitly and throws keyword is used to allow an exception to be thrown if it occurs
+throw keyword is used in a code block while throws is used in method signature to allow the exception.
+throw keyword can also be used to break a switch statement without using break keyword
+
+ Difference between RuntimeException and CheckedException in Java?
+Checked Exceptions must be handled before execution, but Unchecked Exception occur during runtime
+Common exceptions: NullPointerExceptio, ArrayIndexOutOfBound, ClassNotFoundException, IOException.
+
+ What is the collection framework in java? 
+The collection framework is a group of interfaces and concrete classes that are different data structures used to solve different problem. 
+ java.util.Collection - interface which defines the basis actions of a collection
+ Set (Unique things) - DOES NOT ALLOW DUPLICATES. Classes that Implement Set:
+HashSet: Used when you don't want any duplicates and you don't care about order when you iterate through
+Unordered and Unsorted
+LinkedHashSet:  Ordered version of HashSet and use over HashSet when you care about iteration order
+SortedSet
+TreeSet: Elements will be in ascending order, according to the natural order of the elements
+Can also customize constructor to implement your own rules of the natural order
+ List (list of things) - cares about the index. Classes that implement List:
+ArrayList: Fast iteration and fast random access and ordered (by index)
+LinkedList: Ordered by index position and elements are doubly-linked to one another
+It is a good choice for implementing stack and queue
+Iterates more slowly than ArrayList but fast insertion and deletion
+Vector: Same as ArrayList BUT vector methods are synchronized (thread-safe)
+ java.util.Collections - a class that holds static utility methods for use with collections; Includes add, remove, contains, size, and iterator, etc.
+
+ What are Maps?
+ Map (things with unique ID):
+	  Important: none of the Map-related classes and interfaces extend form Collection. The implementation classes of Map are thought of “collections”, not Collection. Classes that implement Map:
+HashMap:  Unsorted and unordered data structure that allows one null KEY and multiple null values in a collection. Works by entries, which are key/value pairs
+
+Hashtable
+Same as HashMap BUT HashTable methods are synchronized (REMEMBER. ONLY METHODS ARE SYNCHRONIZED, NOT CLASSES OR VARIABLES)
+Hashtable won't let you have anything NULL (NO NULLS AT ALL)
+LinkedHashMap
+Maintains insertion order (or optionally, access order)
+Slower than HashMap for adding/removing elements but FASTER ITERATION
+SortedMap: 
+TreeMap: Keys are sorting in natural order 
+
+OOP Interview Questions
+
+ What is Object Oriented Programming (OOP)?
+
+OOP is a programming language model organized around object rather than actions (logic and functions).
+In other words, OOP mainly focuses on the objects that are required to be manipulated instead of logic. This approach is ideal for the programs large and complex codes and needs to be actively updated or maintained.
+It makes development and maintenance easier - It provides data hiding - It provides ability to simulate real-world.
+
+OOP language follow 4 principles:
+Encapsulation: We can hide direct access to data by using private keyword and we can access private data by using getter and setter method.
+Abstraction: It is a process of hiding implementation details and showing only functionality to the user. Abstraction lets you focus on what the object does instead of how it does it.
+Inheritance: It is used to define the relationship between two classes. Inheritance is when a child class acquires all properties and behaviors from a parent class. Child class can reuse all the codes written in parent class. It provides the code reusability.
+Polymorphism: It is the ability of object to behave in multiple form. The most common use of polymorphism in Java is when a parent class reference type of variable is used to refer to a child class object.
+Example
+	
+We use method overloading and overriding to achieve Polymorphism.
+
+
+ What is encapsulation and how did you use it?
+Data hiding by making variables private and providing public getter and setter methods.
+In my project I created multiple POJO/BEAN classes to manage test data and actual data.
+Ex: I take JSON from API response and convert to object of my POJO class all variables are private with getters and setter.
+
+ What is the concept of Abstraction?
+In OOP, abstraction is a process of hiding the implementation details from the user, only the functionality will be provided to the user. 
+In other words, the user will have the information on what the object does instead of how it does it.
+In Java, abstraction is achieved using Abstract classes and interfaces.
+For example: when you log in to your bank account online, you enter your user-id and password and press the login. What happens then, how the input data sent to the server, how it gets verified are all abstracted away from you.
+
+ Difference between Abstract Class and Interface?
+Main difference is methods of a Java interface are implicitly abstract and cannot have implementations. A Java abstract class can have instance methods that have implementation. 
+A class that is declared with abstract keyword, is known as abstract class. It can have abstract and non--abstract methods.
+An Interface is a blueprint of a class. It is a template, and it is declared with interface keyword. It can have abstract methods, default methods, static methods, and public final static variables
+When we want to use Abstract class, we use “extend” keyword. When we want to use Interface, we use “implement” keyword.
+Abstract class and interface both are used to achieve abstraction. Both cannot be instantiated 🡺 we cannot create an object from them.
+
+ What is Inheritance?
+Inheritance represents the IS-A relationship which is also known as a parent-child relationship.
+It is the mechanism in java by which one class can inherit the features (fields and methods) of another class.
+The idea behind inheritance in Java is that you can create new classes that are built upon existing classes.
+You can add new methods and fields in your current class also.
+Code reusability is the most important benefit of inheritance because subclasses inherits the variables and methods of superclass.
+
+ What is Polymorphism?
+Polymorphism is a very important concept in OOP because:
+it enables to change the behavior of the applications in the run time based on the object on which the invocation happens.
+an object can have different forms
+Two types:  Compile Time which is Static and Run Time Polymorphism which is related with child and parent class.
+Polymorphism is implemented using the concept of Method overloading and method overriding. This can only happen when the classes are under the parent and child relationship using inheritance.
+
+ Difference between method Overloading and method Overriding?
+First and most important difference between overloading and overriding:
+in case of overloading, method name must be the same, but the parameters must be different.
+in case of overriding, method name and parameters must be same
+In method overloading, return type can be same or different. In method overriding, return type must be same or covariant type
+	Second major difference between method overloading and overriding:
+We can overload method in the same class but method overriding occurs in two classes that have inheritance relationship.
+We cannot override static, final, or private method in Java, but we can overload static, final, and private method in Java.
+
+
+ Difference between Object and Class?
+
+Class is a blueprint or template which you can create as many objects as you like Object is a member or instance of a class
+Class is declared using class keyword, Object is created through new keyword mainly.
+A class is a template for objects. A class defines object properties including a valid range of values, and a default value. A class also describes object behavior. An object is a member or an "instance" of a class and has states and behaviors in which all its properties have values that you either explicitly define or that are defined by default settings.
+Class - A class can be defined as a template/blueprint that describes the behavior/state that the object of its type support. If we compare them there are many differences but let me tell you some of them which are important to know;
+There are many ways to create object in java such as new keyword, newInstance() method, clone() method, factory method and deserialization. There is only one way to define class in java using class keyword.
+Object is created many times as per requirement. Class is declared once.
+Object is an instance of a class. Class is a blueprint or template from which objects are created.
+
+ How do you use an abstract class in your project? 
+
+These concepts are commonly used in framework development. Abstract class is used in defining a common super class while writing Page Object Model layer of the framework. We usually create an abstract class named BasePage to have all common members for every page written in this class example getPageTitle().
+Then each Page class (HomePage, LoginPage, DashboardPage etc.) inherit from BasePage. Sometimes one may need to change the behavior of methods implemented in superclass. So, subclass has freedom to override that method where we use polymorphism. This is how we use Abstract class in real projects.
+
+ What is the difference between HashMap and Hashtable?
+	HashMap is not synchronized; Hashtable is synchronized.
+HashMap can contain one null key and multiple null values; Hashtable cannot contain any null key or null value.
+HashMap is not thread-safe, so it is useful for non-threaded applications;	Hashtable is thread-safe, and it can be shared between various threads.
+ What is the difference between Collection and Collections?
+	
+The Collection is an interface whereas Collections is a class.
+The Collection interface provides the standard functionality of data structure to List, Set, and Queue. However, Collections class is to sort and synchronize the collection elements.
+The Collection interface provides the methods that can be used for data structure whereas Collections class provides the static methods which can be used for various operation on a collection.
+
+ Important terminology for inheritance: 
+Class: the group of objects which have common properties. It is a template or blueprint from which objects are created.
+SuperClass: the class being inherited from (or a base class or a parent class).
+SubClass: the class that inherits from another class (or a derived class, extended class, or child class).
+The subclass can add its own fields and methods in addition to the superclass fields and methods.
+Reusability: a mechanism which facilitates you to reuse the fields and methods of the existing class when you create a new class. You can use the same fields and methods already defined in the previous class.
+
+
+Other types of questions asked: 
+Share the screen with a code. Find what is wrong in the code or how would you refactor it.
+What would you rate your Java experience out of 10?
+What is your Java level? Do you use it in terms of testing only or in terms of development as well?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ABSTRACTION
+Abstraction means we focus on the essential qualities of something rather than one specific example.
+Focus on the essential (we know phone need to call(), but we don't know how do iphone, samsung call())
+Ignore the irrelevant
+Ignore the unimportant
+In Java, abstraction is achieved by interfaces and abstract classes. We can achieve 100% abstraction using interfaces.
+ABSTRACT CLASSES
+CREATING ABSTRACT CLASSES
+abstract keyword is used to create abstract class.
+An abstract class can not be instantiated.
+Goal is to provide reusable variables and methods to sub classes.
+
+ABSTRACT CLASS RULES REVIEW
+It cannot be instantiated directly.
+It may be defined with any number, including zero, of abstract and non­abstract methods.
+It may not be marked as private or final.
+An abstract class that extends another abstract class inherits all of its abstract methods as its own abstract methods.
+The first concrete class that extends an abstract class must provide an implementation for all of the inherited abstract methods
+
+
+
+
+
+
+
+
+public abstract class Student{
+
+}
+CREATING ABSTRACT METHODS
+abstract keyword is used to create abstract method.
+Abstract method does not have body, only have signature.
+
+ABSTRACT METHOD RULES REVIEW
+It may only be defined in abstract classes.
+It may not be declared private or final.
+It must not provide a method body / implementation in the abstract class for which it is declared.
+Implementing an abstract method in a subclass follows the same rules for overriding a method.
+
+
+
+
+
+public abstract class Student{
+public abstract void attendClass();
+
+}
+CREATING CONCRETE CLASS
+A subclass of abstract class is called concrete class
+A first concrete class must implement all inherited abstract
+
+public abstract class Student{
+public abstract void attendClass();
+}
+methods
+public class LocalStudent extends Student{ @Override
+
+
+public void attendClass(){
+
+
+System.out.println("attending in person");
+
+
+}
+
+
+}
+EXTENDING ANOTHER ABSTRACT CLASS
+An abstract class can extend another abstract class. If so it is optional to implement abstract methods from abstract super class.
+A first concrete class must implement all inherited abstract methods.
+
+
+
+
+public abstract class LocalStudent extends Student{
+public void attendClass();
+}
+
+
+INTERFACE
+Contract between a class and outside world
+Provide set of abstract methods
+A class implements an interface
+The class provides the behaviors included in the interface
+Interface can also store constants
+
+CREATING AN INTERFACE
+public interface Teachable{
+public static final boolean STUDY_HARD = true; public abstract void canLean();
+public abstract void doHomework();
+}
+IMPLEMENTING AN INTERFACE
+A class can implements more than one interface.
+
+public class Student implements Teachable, Dreamer{
+//implementation code
+}
+
+If a class both extend a class and implement an interface, extends should come first then implements keyword
+
+public class Student extends Person implements Teachable, Dreamer{
+//implementation code
+}
+public interface Teachable{
+public static final boolean STUDY_HARD = true;
+
+public abstract void canLean(); public abstract void doHomework();
+}
+public class Student implements Teachable{
+
+@Override
+public void canLean(){
+//code
+}
+
+@Override
+public void doHomework(){
+//code
+}
+}
+INTERFACE RULES
+It is a abstract type and can not be instantiated. →
+
+
+An interface is abstract by default and may not be → marked as final
+
+All fields in interface is automatically public static final even no declared such	→
+
+public interface Teachable{}
+Teachable t = new Teachable(); //DOES NOT COMPILE
+
+
+
+public final interface Teachable{} //DOES NOT COMPILE
+
+
+public final interface Teachable{ boolean STUDY_HARD = true; void canLean();
+public abstract void doHomework();
+}
+EXTENDING ANOTHER INTERFACE
+An interface can extends another interface using
+extends keyword to share functionality.
+Unlike class, an interface can extends multiple interfaces.
+First concrete class has to implement all the abstract methods from both interface.
+
+public interface Teachable{ void canLearn();
+}
+public interface Mentorship extends Teachable,Bright{ void mentor();
+}
+
+
+
+
